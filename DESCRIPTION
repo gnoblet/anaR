@@ -1,0 +1,29 @@
+Package: anaR
+Title: Acute Needs Analysis Engine
+Version: 0.1.0
+Authors@R:
+    person("gnoblet", role = c("aut", "cre"),
+           email = "gnoblet@zaclys.net")
+Description: Validates, flags, and exports ANA humanitarian data. Ports the
+    core pipeline of the ANA SvelteKit dashboard to R: CSV validation against
+    a reference metric framework, threshold-based flagging with rollup from
+    metric to system level, and Excel deep-dive export.
+License: MIT + file LICENSE
+Encoding: UTF-8
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.3.3
+Imports:
+    cli,
+    dplyr,
+    jsonlite,
+    openxlsx2,
+    purrr,
+    readr,
+    rlang,
+    tibble,
+    tidyr
+Suggests:
+    testthat (>= 3.0.0)
+Config/testthat/edition: 3
+Depends: 
+    R (>= 3.5)
