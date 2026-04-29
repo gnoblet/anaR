@@ -1,0 +1,181 @@
+{
+  "generatedAt": "2026-04-29T00:00:00.000Z",
+  "systems": [
+    {
+      "id": "mortality",
+      "label": "Mortality outcome",
+      "factors": [
+        {
+          "id": "mortality_outcomes",
+          "label": "Mortality Outcomes",
+          "sub_factors": [
+            {
+              "id": "under5_mortality",
+              "label": "Under-5 Mortality",
+              "indicators": [
+                {
+                  "id": "u5mr",
+                  "label": "Under-5 Mortality Rate",
+                  "metrics": [
+                    {
+                      "metric": "MET001",
+                      "label": "U5MR (deaths/1000 live births)",
+                      "preference": 1,
+                      "type": "num[0+]",
+                      "above_or_below": "Above",
+                      "thresholds": { "an": 2.0, "van": 4.0 },
+                      "factor_threshold": 1,
+                      "evidence_threshold": 1
+                    },
+                    {
+                      "metric": "MET002",
+                      "label": "U5MR trend (% change)",
+                      "preference": 2,
+                      "type": "num",
+                      "above_or_below": "Above",
+                      "thresholds": { "an": 10.0, "van": 20.0 },
+                      "factor_threshold": 2,
+                      "evidence_threshold": 2
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "health_outcomes",
+      "label": "Health Outcomes",
+      "factors": [
+        {
+          "id": "acute_malnutrition",
+          "label": "Acute Malnutrition",
+          "sub_factors": [
+            {
+              "id": "gam_prevalence",
+              "label": "GAM Prevalence",
+              "indicators": [
+                {
+                  "id": "gam",
+                  "label": "Global Acute Malnutrition",
+                  "metrics": [
+                    {
+                      "metric": "MET003",
+                      "label": "GAM prevalence (WHZ<-2, %)",
+                      "preference": 1,
+                      "type": "num[0:1]",
+                      "above_or_below": "Above",
+                      "thresholds": { "an": 0.15, "van": 0.30 },
+                      "factor_threshold": 1,
+                      "evidence_threshold": 1
+                    },
+                    {
+                      "metric": "MET004",
+                      "label": "GAM prevalence (MUAC<125mm, %)",
+                      "preference": 1,
+                      "type": "num[0:1]",
+                      "above_or_below": "Above",
+                      "thresholds": { "an": 0.15, "van": 0.30 },
+                      "factor_threshold": 1,
+                      "evidence_threshold": 1
+                    },
+                    {
+                      "metric": "MET005",
+                      "label": "Reference-only indicator",
+                      "preference": 3,
+                      "type": "num[0+]",
+                      "above_or_below": "Above",
+                      "thresholds": { "an": 5.0, "van": null },
+                      "factor_threshold": 1,
+                      "evidence_threshold": 1
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "food_systems",
+      "label": "Food Systems",
+      "factors": [
+        {
+          "id": "food_access",
+          "label": "Food Access",
+          "sub_factors": [
+            {
+              "id": "dietary_diversity",
+              "label": "Dietary Diversity",
+              "indicators": [
+                {
+                  "id": "fcs",
+                  "label": "Food Consumption Score",
+                  "metrics": [
+                    {
+                      "metric": "MET006",
+                      "label": "FCS poor households (%)",
+                      "preference": 1,
+                      "type": "num[0:1]",
+                      "above_or_below": "Above",
+                      "thresholds": { "an": 0.20, "van": 0.40 },
+                      "factor_threshold": 1,
+                      "evidence_threshold": 1
+                    },
+                    {
+                      "metric": "MET007",
+                      "label": "HDDS mean score",
+                      "preference": 1,
+                      "type": "int[0+]",
+                      "above_or_below": "Below",
+                      "thresholds": { "an": 4, "van": 3 },
+                      "factor_threshold": 1,
+                      "evidence_threshold": 2
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "market_functionality",
+      "label": "Market Functionality",
+      "factors": [
+        {
+          "id": "market_access",
+          "label": "Market Access",
+          "sub_factors": [
+            {
+              "id": "price_stability",
+              "label": "Price Stability",
+              "indicators": [
+                {
+                  "id": "price_index",
+                  "label": "Price Index",
+                  "metrics": [
+                    {
+                      "metric": "MET008",
+                      "label": "Food price inflation (%)",
+                      "preference": 1,
+                      "type": "num[0+]",
+                      "above_or_below": "Above",
+                      "thresholds": { "an": 0.20, "van": 0.40 },
+                      "factor_threshold": 1,
+                      "evidence_threshold": 1
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
