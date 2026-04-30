@@ -1,4 +1,96 @@
 url: http://guillaume-noblet.com/anaR/
+
 template:
   bootstrap: 5
+  bslib:
+    primary:            "#355975"
+    link-color:         "#355975"
+    navbar-bg:          "#355975"
+    navbar-light-brand-color:  "#ffffff"
+    navbar-light-color:        "rgba(255,255,255,0.80)"
+    navbar-light-hover-color:  "#ffffff"
+    navbar-light-active-color: "#ffffff"
+    headings-color:     "#355975"
+    code-color:         "#c0392b"
+    border-radius:      "0.4rem"
+    btn-border-radius:  "0.3rem"
+  includes:
+    in_header: |
+      <style>
+        /* tighten logo size in navbar */
+        .navbar-brand img { height: 38px; margin-right: 6px; }
+        /* accent rule under page title */
+        .page-header { border-bottom: 3px solid #355975; padding-bottom: .5rem; }
+        /* function-ref table header */
+        .table thead th { background-color: #355975; color: #fff; }
+      </style>
 
+home:
+  title: "anaR — Acute Needs Analysis Engine"
+  description: >
+    Validates, flags, and exports ANA humanitarian data.
+    Ports the core pipeline of the ANA SvelteKit dashboard to R.
+  links:
+    - text: ANA Dashboard (web app)
+      href: https://gnoblet.github.io/ANA_app_svelte/
+    - text: rv package manager
+      href: https://github.com/A2-ai/rv
+
+navbar:
+  structure:
+    left:  [intro, reference, articles, news]
+    right: [search, github]
+  components:
+    github:
+      icon: fab fa-github
+      href: https://github.com/gnoblet/anaR
+      aria-label: GitHub
+
+reference:
+  - title: "Validation"
+    desc: >
+      Validate a CSV data frame against the ANA metric map before flagging.
+    contents:
+      - validate_csv
+      - parse_metric_type
+      - get_default_reference
+
+  - title: "Flagging"
+    desc: >
+      Apply ANA thresholds and roll up metric → subfactor → factor → system →
+      preliminary flag.
+    contents:
+      - flag_data
+      - rollup_statuses
+      - evaluate_group_status
+      - compute_prelim_flags
+
+  - title: "Metric metadata"
+    desc: >
+      Traverse the reference JSON hierarchy and build flat lookup tables.
+    contents:
+      - build_metric_meta_df
+      - get_all_metric_ids
+      - get_metric_metadata
+      - build_subfactor_list
+
+  - title: "Deep-dive Excel export"
+    desc: >
+      Build a formatted XLSX workbook for a single unit of analysis.
+    contents:
+      - build_deep_dive
+      - dd_col_count
+      - dd_col_widths
+      - dd_table_headers
+
+  - title: "Colour helpers"
+    desc: >
+      Pure colour utilities used by the deep-dive exporter; also useful for
+      custom theming.
+    contents:
+      - default_color_map
+      - sys_hex
+      - sys_text_color
+      - hex_to_argb
+      - mix_with_white
+      - luminance
