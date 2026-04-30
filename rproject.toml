@@ -14,6 +14,8 @@ repositories = [
     # "dplyr",
     # {name = "dplyr", repository = "CRAN"},
     # {name = "dplyr", git = "https://github.com/tidyverse/dplyr.git", tag = "v1.1.4"},
-dependencies = [
 
+dependencies = [
+    "devtools",
+    { name = "anaR", path = ".", dependencies_only = true, install_suggestions = true }
 ]
