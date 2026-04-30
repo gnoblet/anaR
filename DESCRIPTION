@@ -15,7 +15,7 @@ RoxygenNote: 7.3.3
 Imports:
     cli,
     dplyr,
-    jsonlite,
+    jsonlite,git c
     openxlsx2,
     purrr,
     readr,
