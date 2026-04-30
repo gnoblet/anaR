@@ -11,14 +11,14 @@
 
 #' @importFrom cli cli_abort cli_warn cli_inform
 #' @importFrom dplyr mutate filter select left_join group_by summarise
-#'   case_when any_of all_of distinct across n if_else
+#'   case_when any_of all_of distinct across n if_else coalesce
 #' @importFrom jsonlite read_json
 #' @importFrom openxlsx2 wb_workbook wb_add_worksheet wb_add_data
 #' @importFrom purrr map_dfr map walk
 #' @importFrom readr read_csv
 #' @importFrom rlang `%||%`
 #' @importFrom tibble tibble as_tibble
-#' @importFrom tidyr pivot_longer pivot_wider
+#' @importFrom tidyr pivot_longer pivot_wider expand_grid
 NULL
 
 # Suppress R CMD check notes for NSE column names created by pivot_longer/mutate
@@ -29,5 +29,8 @@ utils::globalVariables(c(
   "an_threshold", "direction", "preference",
   "factor_threshold", "evidence_threshold",
   "subfactor_status", "factor_status", "system_status",
-  "group_status", "prelim_flag"
+  "group_status", "prelim_flag",
+  "mortality_flag", "ho_flag", "n_other_classif_flagged",
+  "any_classif_flagged", "any_insuff", "all_no_data",
+  "value", "uoa"
 ))
