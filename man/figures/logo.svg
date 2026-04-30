@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 409.83 448.24">
+  <defs>
+    <style>
+      .cls-1, .cls-2 {
+        fill: #fff;
+      }
+
+      .cls-3, .cls-4 {
+        fill: none;
+      }
+
+      .cls-4 {
+        stroke: #231f20;
+        stroke-width: .25px;
+      }
+
+      .cls-2 {
+        font-family: RobotoCondensed-Bold, 'Roboto Condensed';
+        font-size: 69.47px;
+        font-weight: 700;
+      }
+
+      .cls-5 {
+        fill: #325976;
+      }
+
+      .cls-6 {
+        fill: #ed5959;
+      }
+
+      .cls-7 {
+        clip-path: url(#clippath);
+      }
+    </style>
+    <clipPath id="clippath">
+      <rect class="cls-3" width="409.83" height="448.24"/>
+    </clipPath>
+  </defs>
+  <g class="cls-7">
+    <path class="cls-6" d="M153.27,318.25c84.05,0,152.18-71,152.18-158.59S237.31,1.09,153.27,1.09,1.09,72.08,1.09,159.66s68.13,158.59,152.18,158.59"/>
+    <path class="cls-4" d="M153.27,318.25c84.05,0,152.18-71,152.18-158.59S237.31,1.09,153.27,1.09,1.09,72.08,1.09,159.66s68.13,158.59,152.18,158.59Z"/>
+  </g>
+  <rect class="cls-5" x="30.66" y="275.62" width="258.51" height="103.82"/>
+  <text class="cls-2" transform="translate(97.15 348.42)"><tspan x="0" y="0">ANA</tspan></text>
+  <path class="cls-1" d="M135.33,83.83c2.56,0,4.75.89,6.56,2.67,1.81,1.78,2.72,3.94,2.72,6.49v119.2h-18.5v-119.2c0-2.54.91-4.71,2.72-6.49,1.81-1.78,3.98-2.67,6.5-2.67ZM235.12,134.52c1.15-.47,1.73-1.31,1.73-2.54s-.58-2.08-1.73-2.54l-85.9-34.6v74.23l85.9-34.54Z"/>
+</svg>
