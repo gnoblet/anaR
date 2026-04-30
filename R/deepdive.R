@@ -1,4 +1,4 @@
-# ── Layout constants ──────────────────────────────────────────────────────────
+# -- Layout constants ----------------------------------------------------------
 
 #' Total column count for a deep-dive sheet
 #' @param n_hyps Integer number of hypothesis columns.
@@ -24,7 +24,7 @@ dd_table_headers <- function(hyp_ids) {
     hyp_ids, "Comment")
 }
 
-# ── Internal openxlsx2 helpers ────────────────────────────────────────────────
+# -- Internal openxlsx2 helpers ------------------------------------------------
 
 # Cell / range dims helpers
 .cd <- function(row, col) {
@@ -77,7 +77,7 @@ dd_table_headers <- function(hyp_ids) {
   invisible(wb)
 }
 
-# ── Status helpers ────────────────────────────────────────────────────────────
+# -- Status helpers ------------------------------------------------------------
 
 .flag_display <- function(s) {
   switch(s, flag = "Flag", no_flag = "No flag", "No data")
@@ -106,7 +106,7 @@ dd_table_headers <- function(hyp_ids) {
        missing_n = sum(statuses == "no_data"))
 }
 
-# ── Row builders ──────────────────────────────────────────────────────────────
+# -- Row builders --------------------------------------------------------------
 
 # Returns updated current_row after adding the row.
 
@@ -114,7 +114,7 @@ dd_table_headers <- function(hyp_ids) {
                                 num_cols, system_id, color_map) {
   argb_bg   <- .sys_argb(system_id, color_map)
   argb_text <- hex_to_argb(sub("^#", "", sys_text_color(system_id, color_map)))
-  text      <- sprintf("%s  —  UOA: %s", sys_label, uoa_id)
+  text      <- sprintf("%s  --  UOA: %s", sys_label, uoa_id)
 
   .put(wb, sheet, row, 1L, text)
   openxlsx2::wb_merge_cells(wb, sheet, .rd(row, 1L, row, num_cols))
@@ -227,7 +227,7 @@ dd_table_headers <- function(hyp_ids) {
   row + 1L
 }
 
-# ── Hypothesis reference table ────────────────────────────────────────────────
+# -- Hypothesis reference table ------------------------------------------------
 
 .add_hypothesis_table <- function(wb, sheet, row, sys_hyps,
                                    num_cols, system_id, color_map) {
@@ -269,7 +269,7 @@ dd_table_headers <- function(hyp_ids) {
   row + 1L
 }
 
-# ── Synthesis / conclusion section ────────────────────────────────────────────
+# -- Synthesis / conclusion section --------------------------------------------
 
 .add_summary_dropdown_row <- function(wb, sheet, row, label, csv_values,
                                        num_cols, allow_blank = FALSE) {
@@ -367,7 +367,7 @@ dd_table_headers <- function(hyp_ids) {
   )
 }
 
-# ── Landing page ──────────────────────────────────────────────────────────────
+# -- Landing page --------------------------------------------------------------
 
 .landing_col_widths <- c(30, 22, 22, 32, 42, 22, 28, 44)
 
@@ -380,7 +380,7 @@ dd_table_headers <- function(hyp_ids) {
 
   # Title
   row <- 1L
-  .put(wb, sheet, row, 1L, sprintf("UOA Summary  —  %s", uoa_id))
+  .put(wb, sheet, row, 1L, sprintf("UOA Summary  --  %s", uoa_id))
   openxlsx2::wb_merge_cells(wb, sheet, .rd(row, 1L, row, 8L))
   .fill(wb, sheet, .cd(row, 1L), "FF1F4E79")
   openxlsx2::wb_add_font(wb, sheet, .cd(row, 1L),
@@ -439,7 +439,7 @@ dd_table_headers <- function(hyp_ids) {
 
       fac_status <- if (cts$flag_n > 0) "Flag" else
                     if ((cts$flag_n + cts$no_flag_n) > 0) "No Flag" else "No data"
-      fac_text <- sprintf("%s  [%s  ↑%d ✓%d ?%d]",
+      fac_text <- sprintf("%s  [%s  flag:%d ok:%d na:%d]",
                           fac_lbl, fac_status,
                           cts$flag_n, cts$no_flag_n, cts$missing_n)
 
@@ -537,7 +537,7 @@ dd_table_headers <- function(hyp_ids) {
   invisible(wb)
 }
 
-# ── Main export ───────────────────────────────────────────────────────────────
+# -- Main export ---------------------------------------------------------------
 
 #' Build a deep-dive Excel workbook for a single unit of analysis
 #'
@@ -586,10 +586,6 @@ build_deep_dive <- function(uoa_row, ref, hypotheses_data, path,
     raw_name   <- as.character(sys[["label"]] %||% sys_id)
     sheet_name <- substr(gsub("[\\\\/*?:\\[\\]]", "_", raw_name), 1L, 31L)
     wb$add_worksheet(sheet_name)
-
-    # Tab colour
-    openxlsx2::wb_set_properties(wb, sheet = sheet_name,
-      tab_color = openxlsx2::wb_color(hex = substr(.sys_argb(sys_id, color_map), 3L, 8L)))
 
     openxlsx2::wb_set_col_widths(wb, sheet_name,
       cols = seq_along(widths), widths = widths)
